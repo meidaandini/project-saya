@@ -7,7 +7,7 @@ import Header from './Layout/Header.jsx';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Header />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
