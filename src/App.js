@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link,
+} from "react-router-dom";
+/* import Dashboard from './Layout/Dashboard'; */
+import Gedung from "./Pages/Gedung/index";
+import Home from "./Pages/Home/index";
+import Lantai from './Pages/Lantai/index.jsx';
+import Dashboard from './Layout/Dashboard';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+    <Dashboard>
+      
+      <Routes>
+        <Route exact path='/' element={<Home />} />
+          <Route exact path='Gedung/*' element={<Gedung />} />
+          <Route exact path='Lantai/*' element={<Lantai/>} />
+      </Routes>
+    </Dashboard>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
