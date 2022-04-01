@@ -1,90 +1,60 @@
-import React from 'react';
+import * as React from 'react';/* 
+import { styled, useTheme } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import MuiDrawer from '@mui/material/Drawer';
+import MuiAppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar'; */
+import List from '@mui/material/List';/* 
+import CssBaseline from '@mui/material/CssBaseline';
+import Typography from '@mui/material/Typography'; */
+import Divider from '@mui/material/Divider';/* 
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight'; */
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';/* 
+import InboxIcon from '@mui/icons-material/MoveToInbox';
+import MailIcon from '@mui/icons-material/Mail'; */
+import Home from '@mui/icons-material/Home';
+import Source from '@mui/icons-material/Source';
+import Tab from '@mui/icons-material/Tab';
+import { TableBarOutlined } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 
-import Box from '@mui/material/Box';
-import SwipeableDrawer from '@mui/material/SwipeableDrawer';
-import Button from '@mui/material/Button';
-import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
+export default function Navbar(children) {
 
-const Navbar = () => {
-    const [state, setState] = React.useState({
-        top: false,
-        left: true,
-        bottom: false,
-        right: false,
-    });
-
-    const toggleDrawer = (anchor, open) => (event) => {
-        if (
-            event &&
-            event.type === 'keydown' &&
-            (event.key === 'Tab' || event.key === 'Shift')
-        ) {
-            return;
-        }
-
-        setState({ ...state, [anchor]: open });
-    };
-
-    const list = (anchor) => (
-        <Box
-            sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
-            role="presentation"
-            onClick={toggleDrawer(anchor, false)}
-            onKeyDown={toggleDrawer(anchor, false)}
-        >
-            <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>
-                            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
-            </List>
-            <Divider />
-            <List>
-                {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>
-                            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
-            </List>
-        </Box>
-    );
     return (
-        <div>
-            <div>
-                {['left', 'right', 'top', 'bottom'].map((anchor) => (
-                    <React.Fragment key={anchor}>
-                        <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
-                        <SwipeableDrawer
-                            anchor={anchor}
-                            open={state[anchor]}
-                            onClose={toggleDrawer(anchor, false)}
-                            onOpen={toggleDrawer(anchor, true)}
-                        >
-                            {list(anchor)}
-                        </SwipeableDrawer>
-                    </React.Fragment>
-                ))}
-            </div>
-            Menu Navbar
-            <br />
-            <Link to="/">Home</Link>
-            <Link to="/gedung">Gedung</Link>
-        </div>
-    )
+    <div>
+                <Divider />
+                <List>
+                <Link to='/'>
+                    <ListItemButton>
+                        <ListItemIcon>
+                            <Home />
+                        </ListItemIcon>
+                        <ListItemText primary="Dashboard" />
+                    </ListItemButton>
+                </Link>
+                
+                <Link to="/gedung">
+                    <ListItemButton>
+                        <ListItemIcon>
+                            <Source />
+                        </ListItemIcon>
+                        <ListItemText primary="Gedung" />
+                    </ListItemButton>
+                </Link>
+                <Link to="/lantai">
+                    <ListItemButton>
+                        <ListItemIcon>
+                            <Tab />
+                        </ListItemIcon>
+                        <ListItemText primary="Lantai" />
+                    </ListItemButton>
+                </Link>
+                </List>
+    </div>
+            );
 }
-
-export default Navbar;

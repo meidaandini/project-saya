@@ -19,7 +19,7 @@ function App() {
       
       <Routes>
         <Route exact path='/' element={<Home />} />
-          <Route exact path='Gedung/*' element={<Gedung />} />
+          <Route exact path='/gedung' element={<Gedung />} />
           <Route exact path='Lantai/*' element={<Lantai/>} />
       </Routes>
     </Dashboard>
