@@ -4,8 +4,8 @@ import {
   BrowserRouter,
   Routes,
   Route,
-  Link,
-} from "react-router-dom";
+} 
+from "react-router-dom";
 /* import Dashboard from './Layout/Dashboard'; */
 import Gedung from "./Pages/Gedung/index";
 import Home from "./Pages/Home/index";

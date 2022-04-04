@@ -30,16 +30,20 @@ export default function Navbar(children) {
                 <Divider />
                 <List>
                 <Link to='/'>
-                    <ListItemButton>
+                    <ListItemButton 
+                        key="home"
+                    >
                         <ListItemIcon>
                             <Home />
                         </ListItemIcon>
-                        <ListItemText primary="Dashboard" />
+                        <ListItemText primary="Home" />
                     </ListItemButton>
                 </Link>
                 
                 <Link to="/gedung">
-                    <ListItemButton>
+                    <ListItemButton
+                        key="gedung"
+                    >
                         <ListItemIcon>
                             <Source />
                         </ListItemIcon>
@@ -47,7 +51,9 @@ export default function Navbar(children) {
                     </ListItemButton>
                 </Link>
                 <Link to="/lantai">
-                    <ListItemButton>
+                    <ListItemButton
+                        key="lantai"
+                    >
                         <ListItemIcon>
                             <Tab />
                         </ListItemIcon>

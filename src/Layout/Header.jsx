@@ -1,6 +1,6 @@
 import { styled, useTheme } from '@mui/material/styles';
 import {
-    AppBar, Toolbar, Typography, makeStyles, Box, CssBaseline } from "@material-ui/core";
+    /* AppBar, */ Toolbar, Typography, makeStyles, /* Box */ CssBaseline } from "@material-ui/core";
 import React from "react";
 import MuiAppBar from '@mui/material/AppBar';
 import MuiDrawer from '@mui/material/Drawer';
@@ -8,7 +8,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import IconButton from '@mui/material/IconButton';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import Navbar from './Navbar';
+/* import Navbar from './Navbar'; */
 
 const useStyles = makeStyles(() => ({
     header: {
@@ -120,7 +120,7 @@ export default function Header({children}) {
     
 
     return (
-        <Box sx={{ display: 'flex' }}>
+        <>
             <CssBaseline />
             <AppBar position="fixed" open={open}>
                 <Toolbar>
@@ -156,6 +156,6 @@ export default function Header({children}) {
 
             </Drawer>
             
-        </Box>
+        </>
     ); 
     } 
