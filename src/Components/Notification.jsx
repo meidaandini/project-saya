@@ -4,8 +4,8 @@ import Snackbar from '@mui/material/Snackbar';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 
-export default function Notification() {
-    const [open, setOpen] = React.useState(false);
+export default function Notif(props) {
+    const { title, open, setOpen, }= props;
 
     const handleClick = () => {
         setOpen(true);
@@ -37,12 +37,12 @@ export default function Notification() {
 
     return (
         <div>
-            <Button onClick={handleClick}>Data Berhasil Dihapus</Button>
+            <Button onClick={handleClick}></Button>
             <Snackbar
                 open={open}
                 autoHideDuration={6000}
                 onClose={handleClose}
-                message="Note archived"
+                message={title}
                 action={action}
             />
         </div>
