@@ -7,15 +7,9 @@ import { IconButton } from "@material-ui/core";
 import DialogKonfirmasi from '../../Components/DialogKonfirmasi';
 import Notif from '../../Components/Notification';
 import CompPopup from '../../Components/ComponentPopup';
-import From from './Form';/* 
-import Buttons from './Buttons'; */
+import From from './Form';
 import Button from '@mui/material/Button';
 import AddCircleOutline from '@mui/icons-material/AddCircleOutline';
-
-
-
-
-
 
 
 
@@ -40,6 +34,7 @@ const Gedung = () => {
   const [openForm, dialogTambahTampil] = React.useState(false)
   const [dataForm, setdataForm] = React.useState({})
   const [rows, setRows] = useState([])
+  const [idHapus, setidHapus] = useState(-1)
 
   const handleTambahClick = () => {
     // some action
@@ -52,6 +47,9 @@ const Gedung = () => {
     // some action
     console.log(param, event)
     dialogDeleteApakahTampil(true)
+
+    let current_id = param.row.id
+    setidHapus(current_id)
     console.log('tombol', openDelete)
   };
 
@@ -61,6 +59,16 @@ const Gedung = () => {
     dialogEditTampil(true)
     setdataForm(param.row)
     console.log('tombol', openPopup)
+  }
+
+  const hapusData = () => {
+    setNotif(true)
+
+    let indexdata = rows.findIndex(item => item.id === idHapus)
+    console.log(idHapus, 1)
+    let semuadata = [...rows]
+    semuadata.splice(indexdata, 1)
+    setRows(semuadata)
   }
 
 
@@ -105,7 +113,7 @@ const Gedung = () => {
     { id: 5, NamaGedung: 'Menara BCA', AlamatGedung: 'Jl. M.H.Thamrin No. 1, Menteng, Jakarta Pusat' },
     { id: 6, NamaGedung: 'Horiston Ultima', AlamatGedung: 'Jl.KH>Noer Ali Kayuringin Jaya,Kec Bekasi Selatan' },
     { id: 7, NamaGedung: 'Eqiuty Tower', AlamatGedung: 'Kel. Senayan, Kebayoran Baru, Jakarta' },
-    { id: 8, NamaGedung: 'JogjaCityMall', AlamatGedunge: 'Jl. Magelang-Jogja Km 3' },
+    { id: 8, NamaGedung: 'JogjaCityMall', AlamatGedung: 'Jl. Magelang-Jogja Km 3' },
     { id: 9, NamaGedung: 'Grand Galaxy Convention', AlamatGedung: 'Jl.Boulevard Raya No. 1, Kec Bekasi Selatan' },
   ];
 
@@ -125,7 +133,7 @@ const Gedung = () => {
         Tambah
       </Button>
       <DataTable rows={rows} columns={Columns} />
-      <DialogKonfirmasi open={openDelete} title="Yakin?" setOpen={dialogDeleteApakahTampil} onConfirm={()=>{setNotif(true)}} />
+      <DialogKonfirmasi open={openDelete} title="Yakin?" setOpen={dialogDeleteApakahTampil} onConfirm={hapusData} />
       <Notif open={openNotif} title="Data berhasil dihapus" setOpen={setNotif} />
       <CompPopup open={openPopup} title="Create/Edit Data Gedung" setOpen={dialogEditTampil} action="Simpan" action2="Batal" action3="Draft">
         <From data={dataForm} setOpen={dialogEditTampil} setData={setdataForm} rows={rows} setRows={setRows} cmd="edit" />

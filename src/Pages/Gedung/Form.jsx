@@ -9,7 +9,8 @@ import Button from '@mui/material/Button';
 
 export default function Form(props) {
     const { data, setData, children, setOpen, rows, setRows, cmd} = props
-    const [formData, setformData] = React.useState({})
+    const [formData, setformData] = React.useState(data)
+
 
     const handleClose = () => {
         setOpen(false);
@@ -17,17 +18,20 @@ export default function Form(props) {
 
     const handleChange = (event) => {
         let {name, value} = event.target
-        setformData({...data, [name] : value});
+        setformData({...formData, [name] : value});
         console.log(data, formData, name)
     };
 
+    
+
     const handleSimpan = () => {
         if (cmd == 'tambah') {
-            alert('tambah')
-            let dataBaru = [{ id: 10, NamaGedung: 'XX Galaxy Convention', AlamatGedung: 'XX Jl.Boulevard Raya No. 1, Kec Bekasi Selatan' }]
+            alert('tambah?')
+            let dataBaru = [{ id:rows.length+1, NamaGedung:formData.NamaGedung, AlamatGedung:formData.AlamatGedung }]
+            
             setRows([...rows, ...dataBaru])
         } else {
-            // alert('edit')
+            alert('edit?')
             let current_id = data.id
 
             let indexdata = rows.findIndex(item => item.id === current_id)
@@ -37,10 +41,7 @@ export default function Form(props) {
             semuadata[indexdata] = formData
           
             setRows(semuadata)
-            /* let dataBaru = [...this.state.dataBaru];
-            dataBaru[NamaGedung] = { ...dataBaru[{Gedung HOD}], key: Wisma };
-            this.setRows({dataBaru}); */
-            // temp_element.{Mraen 108, Sendangadi Sleman } = temp_element.{Mraen 108, Sendangadi Sleman }+{Mraen,Sleman};
+            
         }
         setOpen(false);
     };

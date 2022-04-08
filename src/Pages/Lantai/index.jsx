@@ -5,8 +5,7 @@ import Create from '@mui/icons-material/Create';
 import { IconButton } from "@material-ui/core";
 import DialogKonfirmasi from '../../Components/DialogKonfirmasi';
 import Notif from '../../Components/Notification';
-import From from './Form';
-import ComPopup from '../../Components/ComponentPopup';
+import {useState} from 'react';
 import Button from '@mui/material/Button';
 import AddCircleOutline from '@mui/icons-material/AddCircleOutline';
 import CompPopup from '../../Components/ComponentPopup';
@@ -22,6 +21,7 @@ function DataTable(props) {
                 pageSize={5}
                 rowsPerPageOptions={[5]}
                 checkboxSelection
+                getRowId={(row) => row.id}
             />
         </div>
     );
@@ -33,6 +33,8 @@ const Lantai = () => {
     const [openPopup, dialogEditTampil] = React.useState(false)
     const [openFrom, dialogTambahTampil] = React.useState(false)
     const [dataForm, setdataForm] = React.useState({})
+    const [rows, setRows] = useState([])
+    const [idHapus, setidHapus] = useState(-1)
 
 
     const handleTambahClick = () => {
@@ -46,6 +48,9 @@ const Lantai = () => {
         // some action
         console.log(param, event)
         dialogDeleteApakahTampil(true)
+
+        let current_id = param.row.id
+        setidHapus(current_id)
         console.log('tombol', openDelete)
     };
 
@@ -57,6 +62,16 @@ const Lantai = () => {
         console.log('tombol', openPopup)
     }
 
+    const hapusData = () => {
+        setNotif(true)
+
+        let indexdata = rows.findIndex(item => item.id === idHapus)
+        console.log(idHapus, 1)
+        let semuadata = [...rows]
+        semuadata.splice(indexdata, 1)
+        setRows(semuadata)
+    }
+
 const columns = [
     { field: 'id',
       headerName: 'ID',
@@ -64,7 +79,7 @@ const columns = [
       flex: 1
     },
     { 
-        field: 'NomerLantai', 
+        field: 'NomorLantai', 
         headerName: 'Nomor Lantai',
         type: 'number',
         textAlign: 'right',
@@ -100,22 +115,26 @@ const columns = [
     },
 ];
 
-const rows = [
-    { id: 1, NomerLantai: '112B', NamaLantai: 'Lower Ground', },
-    { id: 2, NomerLantai: '07A', NamaLantai: 'Lantai Atas' },
-    { id: 3, NomerLantai: '81B', NamaLantai: 'Upper Ground' },
-    { id: 4, NomerLantai: '46C', NamaLantai: 'Hardnest' },
-    { id: 5, NomerLantai: '321A', NamaLantai: 'Bougenfill' },
-    { id: 6, NomerLantai: '711A', NamaLantai: 'Struggle' },
-    { id: 7, NomerLantai: '65D', NamaLantai: 'Aster' },
-    { id: 8, NomerLantai: '36A', NamaLantai: 'Basement Tingkat 3' },
-    { id: 9, NomerLantai: '212c', NamaLantai: 'Ground Floor' },
+const rowsGrid = [
+    { id: 1, NomorLantai: '112B', NamaLantai: 'Lower Ground', },
+    { id: 2, NomorLantai: '07A', NamaLantai: 'Lantai Atas' },
+    { id: 3, NomorLantai: '81B', NamaLantai: 'Upper Ground' },
+    { id: 4, NomorLantai: '46C', NamaLantai: 'Hardnest' },
+    { id: 5, NomorLantai: '321A', NamaLantai: 'Bougenfill' },
+    { id: 6, NomorLantai: '711A', NamaLantai: 'Struggle' },
+    { id: 7, NomorLantai: '65D', NamaLantai: 'Aster' },
+    { id: 8, NomorLantai: '36A', NamaLantai: 'Basement Tingkat 3' },
+    { id: 9, NomorLantai: '212c', NamaLantai: 'Ground Floor' },
 ];
+
+React.useEffect(function (){
+
+    setRows(rowsGrid)
+},[])
 
     return (
         <div>
             <h2 style={{ textAlign: 'center'}}> Tampilan Menu Lantai </h2>
-            <h2 style={{ textAlign: 'center' }}>Tampilan Menu Gedung</h2>
             <Button variant="outlined" direction="row" spacing={2} mb={7} aria-label="Tambah" onClick={(event) => {
                 handleTambahClick()
             }}
@@ -124,13 +143,13 @@ const rows = [
                 Tambah
             </Button>
             <DataTable rows={rows} columns={columns}/>
-            <DialogKonfirmasi open={openDelete} title="Anda yakin ingin menghapus?" setOpen={dialogDeleteApakahTampil} onConfirm={() => { setNotif(true) }} />
+            <DialogKonfirmasi open={openDelete} title="Anda yakin ingin menghapus?" setOpen={dialogDeleteApakahTampil} onConfirm={hapusData} />
             <Notif open={openNotif} title="Data berhasil dihapus" setOpen={setNotif} />
-            <ComPopup open={openPopup} title="Create/Edit Data Lantai Gedung Tahun 2022" setOpen={dialogEditTampil} action="Simpan" action2="Buang" action3="Batal">
-                <Form data={dataForm} setData={setdataForm}/>
-            </ComPopup>
+            <CompPopup open={openPopup} title="Create/Edit Data Gedung" setOpen={dialogEditTampil} action="Simpan" action2="Batal" action3="Draft">
+                <Form data={dataForm} setOpen={dialogEditTampil} setData={setdataForm} rows={rows} setRows={setRows} cmd="edit" />
+            </CompPopup>
             <CompPopup open={openFrom} title="Tambah Data Lantai" setOpen={dialogTambahTampil} action="Simpan" action2="Batal">
-                <Form data={dataForm} setData={setdataForm}/>
+                <Form data={dataForm} setData={setdataForm} setOpen={dialogTambahTampil} rows={rows} setRows={setRows} cmd="tambah"/>
             </CompPopup>
         </div>
     )
