@@ -11,6 +11,7 @@ import Gedung from "./Pages/Gedung/index";
 import Home from "./Pages/Home/index";
 import Lantai from './Pages/Lantai/index.jsx';
 import Dashboard from './Layout/Dashboard';
+import CountProvider from './Pages/ComContext/index';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route exact path='/' element={<Home />} />
           <Route exact path='/gedung' element={<Gedung />} />
           <Route exact path='Lantai/*' element={<Lantai/>} />
+          <Route exact path='/context' element={<CountProvider/>} />
       </Routes>
     </Dashboard>
     </BrowserRouter>

@@ -20,7 +20,7 @@ import MailIcon from '@mui/icons-material/Mail'; */
 import Home from '@mui/icons-material/Home';
 import Source from '@mui/icons-material/Source';
 import Tab from '@mui/icons-material/Tab';
-import { TableBarOutlined } from '@mui/icons-material';
+import Api from '@mui/icons-material/Api';
 import { Link } from 'react-router-dom';
 
 export default function Navbar(children) {
@@ -58,6 +58,16 @@ export default function Navbar(children) {
                             <Tab />
                         </ListItemIcon>
                         <ListItemText primary="Lantai" />
+                    </ListItemButton>
+                </Link>
+                <Link to="/context">
+                    <ListItemButton
+                        key="Apps"
+                    >
+                        <ListItemIcon>
+                            <Api />
+                        </ListItemIcon>
+                        <ListItemText primary="Context" />
                     </ListItemButton>
                 </Link>
                 </List>
