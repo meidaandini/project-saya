@@ -7,13 +7,11 @@ import Component from './Component';
 const Context = () => {
 
 return(
-    <React.StrictMode>
         <CountProvider>
         <Component>
             <Count />
         </Component>
         </CountProvider>
-    </React.StrictMode>
     );
 }
 

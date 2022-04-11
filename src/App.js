@@ -6,12 +6,13 @@ import {
   Route,
 } 
 from "react-router-dom";
-/* import Dashboard from './Layout/Dashboard'; */
 import Gedung from "./Pages/Gedung/index";
 import Home from "./Pages/Home/index";
 import Lantai from './Pages/Lantai/index.jsx';
 import Dashboard from './Layout/Dashboard';
 import CountProvider from './Pages/ComContext/index';
+import GedungContext  from './Pages/GedungContext';
+import { GedungProvider } from './Pages/GedungContext/Context';
 
 function App() {
   return (
@@ -21,8 +22,9 @@ function App() {
       <Routes>
         <Route exact path='/' element={<Home />} />
           <Route exact path='/gedung' element={<Gedung />} />
-          <Route exact path='Lantai/*' element={<Lantai/>} />
+          <Route exact path='lantai/*' element={<Lantai/>} />
           <Route exact path='/context' element={<CountProvider/>} />
+          <Route extach path='/gedungcontext' element={<GedungProvider><GedungContext/></GedungProvider>} />
       </Routes>
     </Dashboard>
     </BrowserRouter>

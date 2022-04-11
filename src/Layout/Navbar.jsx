@@ -1,27 +1,15 @@
-import * as React from 'react';/* 
-import { styled, useTheme } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import MuiDrawer from '@mui/material/Drawer';
-import MuiAppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar'; */
-import List from '@mui/material/List';/* 
-import CssBaseline from '@mui/material/CssBaseline';
-import Typography from '@mui/material/Typography'; */
-import Divider from '@mui/material/Divider';/* 
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight'; */
+import * as React from 'react';
+import List from '@mui/material/List';
+import Divider from '@mui/material/Divider';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';/* 
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail'; */
+import ListItemText from '@mui/material/ListItemText';
 import Home from '@mui/icons-material/Home';
 import Source from '@mui/icons-material/Source';
 import Tab from '@mui/icons-material/Tab';
 import Api from '@mui/icons-material/Api';
 import { Link } from 'react-router-dom';
+import Article from '@mui/icons-material/Article';
 
 export default function Navbar(children) {
 
@@ -68,6 +56,16 @@ export default function Navbar(children) {
                             <Api />
                         </ListItemIcon>
                         <ListItemText primary="Context" />
+                    </ListItemButton>
+                </Link>
+                <Link to="/GedungContext">
+                    <ListItemButton
+                        key="GedungContext"
+                    >
+                        <ListItemIcon>
+                            <Article />
+                        </ListItemIcon>
+                        <ListItemText primary="Gedung_Context" />
                     </ListItemButton>
                 </Link>
                 </List>

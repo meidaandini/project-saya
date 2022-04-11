@@ -1,0 +1,116 @@
+{
+  "gedung": [
+    {
+      "id": 1,
+      "NamaGedung": "Gedung HOD",
+      "AlamatGedung": "Mraen 108, Sendangadi Sleman"
+    },
+    {
+      "id": 2,
+      "NamaGedung": "Kantor Pusat",
+      "AlamatGedung": "Mraen 07, Sendangadi Sleman"
+    },
+    {
+      "id": 3,
+      "NamaGedung": "Kantor Lama",
+      "AlamatGedung": "Mraen 38, Sendangadi Sleman"
+    },
+    {
+      "id": 4,
+      "NamaGedung": "Wisma 46",
+      "AlamatGedung": "Jl. Jendral Sudirman. Tanah Abang, Jakarta"
+    },
+    {
+      "id": 5,
+      "NamaGedung": "Menara BCA",
+      "AlamatGedung": "Jl. M.H.Thamrin No. 1, Menteng, Jakarta Pusat"
+    },
+    {
+      "id": 6,
+      "NamaGedung": "Horiston Ultima",
+      "AlamatGedung": "Jl.KH>Noer Ali Kayuringin Jaya,Kec Bekasi Selatan"
+    },
+    {
+      "NamaGedung": "",
+      "AlamatGedung": "",
+      "id": 7
+    },
+    {
+      "id": 8,
+      "NamaGedung": "JogjaCityMall",
+      "AlamatGedung": "Jl. Magelang-Jogja Km 3"
+    },
+    {
+      "id": 9,
+      "NamaGedung": "Grand Galaxy Convention",
+      "AlamatGedung": "Jl.Boulevard Raya No. 1, Kec Bekasi Selatan"
+    },
+    {
+      "id": 10,
+      "NamaGedung": "Gedung Baru",
+      "AlamatGedung": "Mraen 109, Sendangadi Sleman"
+    },
+    {
+      "NamaGedung": "",
+      "AlamatGedung": "",
+      "id": 11
+    },
+    {
+      "id": 12,
+      "NamaGedung": "kiki",
+      "AlamatGedung": "kkkkk"
+    },
+    {
+      "id": 13,
+      "NamaGedung": "juang",
+      "AlamatGedung": "jl.soekarno"
+    }
+  ],
+  "lantai": [
+    {
+      "id": 1,
+      "NomorLantai": "112B",
+      "NamaLantai": "Lower Ground"
+    },
+    {
+      "id": 2,
+      "NomorLantai": "07A",
+      "NamaLantai": "Lantai Atas"
+    },
+    {
+      "id": 3,
+      "NomorLantai": "81B",
+      "NamaLantai": "Upper Ground"
+    },
+    {
+      "id": 4,
+      "NomorLantai": "46C",
+      "NamaLantai": "Hardnest"
+    },
+    {
+      "id": 5,
+      "NomorLantai": "321A",
+      "NamaLantai": "Bougenfill"
+    },
+    {
+      "id": 6,
+      "NomorLantai": "711A",
+      "NamaLantai": "Struggle"
+    },
+    {
+      "id": 7,
+      "NomorLantai": "65D",
+      "NamaLantai": "Aster"
+    },
+    {
+      "id": 8,
+      "NomorLantai": "36A",
+      "NamaLantai": "Basement Tingkat 3"
+    },
+    {
+      "id": 9,
+      "NomorLantai": "212C",
+      "NamaLantai": "Ground Floor"
+    }
+  ]
+}
