@@ -21,19 +21,19 @@
       "AlamatGedung": "Jl. Jendral Sudirman. Tanah Abang, Jakarta"
     },
     {
-      "id": 5,
-      "NamaGedung": "Menara BCA",
-      "AlamatGedung": "Jl. M.H.Thamrin No. 1, Menteng, Jakarta Pusat"
+      "NamaGedung": "Menara Tower",
+      "AlamatGedung": "Jl. M.H.Thamrin No. 1, Menteng, Jakarta Pusat",
+      "id": 5
     },
     {
-      "id": 6,
       "NamaGedung": "Horiston Ultima",
-      "AlamatGedung": "Jl.KH>Noer Ali Kayuringin Jaya,Kec Bekasi Selatan"
+      "AlamatGedung": "Jl.KH.Noer Ali Kayuringin Jaya,Kec Bekasi Selatan",
+      "id": 6
     },
     {
-      "NamaGedung": "",
-      "AlamatGedung": "",
-      "id": 7
+      "id": 7,
+      "NamaGedung": "Eqiuty Tower",
+      "AlamatGedung": "Kel. Senayan, Kebayoran Baru, Jakarta"
     },
     {
       "id": 8,
@@ -49,21 +49,6 @@
       "id": 10,
       "NamaGedung": "Gedung Baru",
       "AlamatGedung": "Mraen 109, Sendangadi Sleman"
-    },
-    {
-      "NamaGedung": "",
-      "AlamatGedung": "",
-      "id": 11
-    },
-    {
-      "id": 12,
-      "NamaGedung": "kiki",
-      "AlamatGedung": "kkkkk"
-    },
-    {
-      "id": 13,
-      "NamaGedung": "juang",
-      "AlamatGedung": "jl.soekarno"
     }
   ],
   "lantai": [
@@ -88,9 +73,9 @@
       "NamaLantai": "Hardnest"
     },
     {
-      "id": 5,
-      "NomorLantai": "321A",
-      "NamaLantai": "Bougenfill"
+      "NomorLantai": "32A",
+      "NamaLantai": "Bougenfill",
+      "id": 5
     },
     {
       "id": 6,

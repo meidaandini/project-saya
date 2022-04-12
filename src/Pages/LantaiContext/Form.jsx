@@ -6,14 +6,14 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import Button from "@mui/material/Button";
-import { useGedungContext } from "./Context";
+import { useLantaiContext } from "./Context";
 // import Context from "@mui/base/TabsUnstyled/TabsContext";
 import axios from "axios";
 import Notif from "../../Components/Notification";
 
 export const Form = (props) => {
   const { setRows, rows, dataForm, setNotif, notifText, setnotifText } =
-    useGedungContext();
+    useLantaiContext();
   const { setData, children, setOpen, cmd } = props;
   const data = dataForm;
   const [formData, setformData] = React.useState(data);
@@ -36,22 +36,22 @@ export const Form = (props) => {
       let dataBaru = [
         {
           id: rows.length + 1,
-          NamaGedung: formData.NamaGedung,
-          AlamatGedung: formData.AlamatGedung,
+          NomorLantai: formData.NomorLantai,
+          NamaLantai: formData.NamaLantai,
         },
       ];
 
       const options = {
         method: "POST",
-        url: "http://localhost:3004/gedung",
+        url: "http://localhost:3004/lantai",
         headers: {
           "user-agent": "vscode-restclient",
           "content-type": "application/json",
         },
         data: {
           id: rows.length + 1,
-          NamaGedung: formData.NamaGedung,
-          AlamatGedung: formData.AlamatGedung,
+          NomorLantai: formData.NomorLantai,
+          NamaLantai: formData.NamaLantai,
         },
       };
 
@@ -78,14 +78,14 @@ export const Form = (props) => {
 
       const options = {
         method: "PUT",
-        url: `http://localhost:3004/gedung/${current_id} `,
+        url: `http://localhost:3004/lantai/${current_id} `,
         headers: {
           "user-agent": "vscode-restclient",
           "content-type": "application/json",
         },
         data: {
-          NamaGedung: formData.NamaGedung,
-          AlamatGedung: formData.AlamatGedung,
+          NomorLantai: formData.NomorLantai,
+          NamaLantai: formData.NamaLantai,
         },
       };
 
@@ -102,10 +102,9 @@ export const Form = (props) => {
     }
     setOpen(false);
   };
-
   return (
     <div>
-      <DialogTitle>Form Gedung</DialogTitle>
+      <DialogTitle>Form Lantai</DialogTitle>
       <DialogContent>
         <Box
           component="form"
@@ -115,32 +114,32 @@ export const Form = (props) => {
           noValidate
           autoComplete="off"
         >
-          <DialogContentText>Data Gedung Tahun 2022</DialogContentText>
-          <title>Nama Gedung</title>
+          <DialogContentText>Data Lantai Gedung Tahun 2022</DialogContentText>
+          <title>Nomor Lantai</title>
           <TextField
             autoFocus
             margin="dense"
             id="filled-basic"
-            label="Nama Gedung"
-            type="Create"
-            fullWidth
-            onKeyUp={handleChange}
-            name="NamaGedung"
-            variant="filled"
-            defaultValue={data.NamaGedung}
-          />
-          <title>Alamat Gedung</title>
-          <TextField
-            autoFocus
-            margin="dense"
-            id="filled-basic"
-            label="Alamat Gedung"
+            label="Nomor Lantai"
             type="Create"
             fullWidth
             onChange={handleChange}
-            name="AlamatGedung"
+            name="NomorLantai"
             variant="filled"
-            defaultValue={data.AlamatGedung}
+            defaultValue={data.NomorLantai}
+          />
+          <title>Nama Lantai</title>
+          <TextField
+            autoFocus
+            margin="dense"
+            id="filled-basic"
+            label="Nama Lantai"
+            type="Create"
+            fullWidth
+            onChange={handleChange}
+            name="NamaLantai"
+            variant="filled"
+            defaultValue={data.NamaLantai}
           />
         </Box>
       </DialogContent>

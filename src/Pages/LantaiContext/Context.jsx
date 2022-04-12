@@ -1,9 +1,9 @@
 import React, { useState, createContext, useContext } from "react";
 
-const GedungContext = createContext();
+const LantaiContext = createContext();
 
-export const useGedungContext = () => {
-  const context = useContext(GedungContext);
+export const useLantaiContext = () => {
+  const context = useContext(LantaiContext);
   const [openDelete, dialogDeleteApakahTampil] = context.deletex;
   const [openNotif, setNotif] = context.notif;
   const [openPopup, dialogEditTampil] = context.edit;
@@ -33,7 +33,7 @@ export const useGedungContext = () => {
   };
 };
 
-export const GedungProvider = ({ children }) => {
+export const LantaiProvider = ({ children }) => {
   const [openDelete, dialogDeleteApakahTampil] = React.useState(false);
   const [openNotif, setNotif] = React.useState(false);
   const [openPopup, dialogEditTampil] = React.useState(false);
@@ -43,7 +43,7 @@ export const GedungProvider = ({ children }) => {
   const [idHapus, setidHapus] = useState(-1);
   const [notifText, setnotifText] = useState("");
   return (
-    <GedungContext.Provider
+    <LantaiContext.Provider
       value={{
         deletex: [openDelete, dialogDeleteApakahTampil],
         notif: [openNotif, setNotif],
@@ -56,6 +56,6 @@ export const GedungProvider = ({ children }) => {
       }}
     >
       {children}
-    </GedungContext.Provider>
+    </LantaiContext.Provider>
   );
 };

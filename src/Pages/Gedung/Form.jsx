@@ -23,7 +23,7 @@ export default function Form(props) {
 
   const handleSimpan = () => {
     if (cmd == "tambah") {
-      alert("tambah? xxx");
+      alert("tambah?");
       let dataBaru = [
         {
           id: rows.length + 1,

@@ -1,5 +1,5 @@
 import React from "react";
-import { GedungProvider, useGedungContext } from "./Context";
+import { LantaiProvider, useLantaiContext } from "./Context";
 import Count from "./Count";
 import DialogKonfirmasi from "../../Components/DialogKonfirmasi";
 import Notif from "../../Components/Notification";
@@ -23,10 +23,10 @@ function Container() {
     setdataForm,
     openForm,
     dialogTambahTampil,
-  } = useGedungContext();
+  } = useLantaiContext();
   const data = dataForm;
   const [formData, setformData] = React.useState(data);
-  const { rows, setRows, setnotifText, notifText } = useGedungContext();
+  const { rows, setRows, setnotifText, notifText } = useLantaiContext();
 
   const handleTambahClick = () => {
     dialogTambahTampil(true);
@@ -44,7 +44,7 @@ function Container() {
 
     const options = {
       method: "DELETE",
-      url: `http://localhost:3004/gedung/${idHapus}`,
+      url: `http://localhost:3004/lantai/${idHapus}`,
       headers: {
         "user-agent": "vscode-restclient",
         "content-type": "application/json",
@@ -131,10 +131,10 @@ function Container() {
 const Context = () => {
   return (
     <>
-      <h2 style={{ textAlign: "center" }}>Tampilan Menu Gedung Context</h2>
-      <GedungProvider>
+      <h2 style={{ textAlign: "center" }}>Tampilan Menu Lantai Context</h2>
+      <LantaiProvider>
         <Container />
-      </GedungProvider>
+      </LantaiProvider>
     </>
   );
 };
