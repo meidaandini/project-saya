@@ -16,24 +16,26 @@ import { GedungProvider } from './Pages/GedungContext/Context';
 import { LantaiProvider } from './Pages/LantaiContext/Context';
 import LantaiContext from './Pages/LantaiContext';
 import Login from './Login/Login';
+import {AuthProvider, Butuhlogin} from './Components/Auth/AuthContext';
 
 function App() {
   return (
+    <AuthProvider>
+
     <BrowserRouter>
-    <Dashboard>
-      <Routes>
-        <Route exact path='/' element={<Home />} />
-          <Route exact path='/gedung' element={<Gedung />} />
-          <Route exact path='lantai/*' element={<Lantai/>} />
-          <Route exact path='/context' element={<CountProvider/>} />
-          <Route extach path='/gedungcontext' element={<GedungProvider><GedungContext/></GedungProvider>} />
-          <Route extach path='/lantaicontext' element={<LantaiProvider><LantaiContext/></LantaiProvider> }/> 
-      </Routes>
-    </Dashboard>
     <Routes>
-      <Route extach path='/' element={<Login />} />
+      <Route path='/' element={<Butuhlogin><Dashboard /></Butuhlogin>} >
+          <Route exact path='/home' element={<Home />} />
+          <Route exact path='/gedung' element={<Gedung />} />
+          <Route path='lantai' element={<Lantai/>} />
+          <Route exact path='/context' element={<CountProvider/>} />
+          <Route exach path='/gedungcontext' element={<GedungProvider><GedungContext/></GedungProvider>} />
+          <Route exach path='/lantaicontext' element={<LantaiProvider><LantaiContext/></LantaiProvider> }/>
+      </Route>
+      <Route exact path='/login' element={<Login />} />
     </Routes>
     </BrowserRouter>
+    </AuthProvider>
   );
 };
 
