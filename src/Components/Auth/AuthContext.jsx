@@ -8,6 +8,8 @@ export const useAuthContext = () => {
   const [userName, setuserName] = context.username;
   const [dataLogin, setDataLogin] = context.dataLogin;
   const [openToken, setopenToken] = context.token;
+  const [openLogOut, setopenLogOut] = context.logout;
+  const [dialogLogOut, setDialogLogOut] = context.dialoglogout;
 
   return {
     userName,
@@ -16,6 +18,10 @@ export const useAuthContext = () => {
     setopenToken,
     dataLogin,
     setDataLogin,
+    openLogOut,
+    setopenLogOut,
+    dialogLogOut,
+    setDialogLogOut,
   };
 };
 
@@ -36,6 +42,8 @@ export const AuthProvider = ({ children }) => {
   const [userName, setuserName] = useState(usrlocal);
   const [dataLogin, setDataLogin] = useState({});
   const [openToken, setopenToken] = useState(tokenlocal);
+  const [openLogOut, setopenLogOut] = useState();
+  const [dialogLogOut, setDialogLogOut] = useState();
 
   return (
     <AuthContext.Provider
@@ -43,6 +51,8 @@ export const AuthProvider = ({ children }) => {
         username: [userName, setuserName],
         dataLogin: [dataLogin, setDataLogin],
         token: [openToken, setopenToken],
+        logout: [openLogOut, setopenLogOut],
+        dialoglogout: [dialogLogOut, setDialogLogOut],
       }}
     >
       {children}

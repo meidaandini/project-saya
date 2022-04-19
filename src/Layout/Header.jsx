@@ -1,10 +1,11 @@
 import { styled, useTheme } from "@mui/material/styles";
 import {
-  /* AppBar, */ Toolbar,
+  /* AppBar, */
   Typography,
   makeStyles,
   /* Box */ CssBaseline,
 } from "@material-ui/core";
+import { Toolbar } from "@mui/material";
 import React from "react";
 import MuiAppBar from "@mui/material/AppBar";
 import MuiDrawer from "@mui/material/Drawer";
@@ -20,11 +21,19 @@ import MenuItem from "@mui/material/MenuItem";
 import { Divider } from "@material-ui/core";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import Logout from "@mui/icons-material/Logout";
-
+import {
+  Routes,
+  Route,
+  useNavigate,
+  useLocation,
+  Navigate,
+  Outlet,
+} from "react-router-dom";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
+import DialogKonfirmasi from "../Components/DialogKonfirmasi";
 
 const useStyles = makeStyles(() => ({
   header: {
@@ -41,7 +50,14 @@ const useStyles = makeStyles(() => ({
 export default function Header({ children }) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-  const { userName } = useAuthContext();
+  const {
+    userName,
+    setopenToken,
+    setuserName,
+    openLogOut,
+    dialogLogOut,
+    setopenLogOut,
+  } = useAuthContext();
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -166,48 +182,52 @@ export default function Header({ children }) {
     setMenuOpen(false);
   };
 
+  const handleLogout = () => {
+    setopenLogOut(true);
+  };
+
+  let navigate = useNavigate();
+  let location = useLocation();
+  let from = location.state?.from?.pathname || "/login";
+
+  const LogOut = (event) => {
+    localStorage.setItem("username", "");
+    localStorage.setItem("token", "");
+
+    navigate(from, { replace: true });
+  };
+
   return (
     <>
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{
-              marginRight: 5,
-              ...(open && { display: "none" }),
-            }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <DrawerHeader></DrawerHeader>
-          <Typography variant="h6" noWrap component="div">
-            Menu Dashboard
-          </Typography>
-          {/* <IconButton
-            onClick={handleClick}
-            size="small"
-            sx={{ ml: 2 }}
-            aria-controls={open ? "account-menu" : undefined}
-            aria-haspopup="true"
-            aria-expanded={open ? "true" : undefined}
-          >
-            <Avatar
-              src="/broken-image.jpg"
-              style={{
-                marginLeft: 940,
-                position: "static",
-                marginRight: 7,
-                width: 25,
-                height: 25,
+      <AppBar position="fixed" open={open} elevation={0}>
+        <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+          <Box sx={{ display: "flex" }}>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              onClick={handleDrawerOpen}
+              edge="start"
+              sx={{
+                marginRight: 5,
+                ...(open && { display: "none" }),
               }}
-            />
-          </IconButton> */}
+            >
+              <MenuIcon />
+            </IconButton>
+            {/* <DrawerHeader></DrawerHeader> */}
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              // style={{ marginRight: 920 }}
+            >
+              Menu Dashboard
+            </Typography>
+          </Box>
+
           <div>
-            <Box sx={{ flexGrow: 0 }}>
+            <Box>
               <IconButton
                 size="small"
                 aria-label="account of current user"
@@ -215,9 +235,9 @@ export default function Header({ children }) {
                 aria-haspopup="true"
                 onClick={handleOpenUserMenu}
                 sx={{ mr: 2 }}
-                style={{
+                /* tyle={{
                   marginLeft: 940,
-                }}
+                }} */
               >
                 <Typography
                   variant="h6"
@@ -260,58 +280,25 @@ export default function Header({ children }) {
               >
                 <MenuItem onClick={handleClose}>Profile</MenuItem>
                 <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem
+                  onClick={(event) => {
+                    handleLogout(event);
+                  }}
+                >
+                  Log Out
+                </MenuItem>
               </Menu>
             </Box>
           </div>
         </Toolbar>
-        {/* <Menu
-          anchorEl={anchorEl}
-          id="account-menu"
-          open={openMenu}
-          onClose={handleClose}
-          onClick={handleClose}
-          PaperProps={{
-            elevation: 0,
-            sx: {
-              overflow: "visible",
-              filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
-              mt: 1.5,
-              "& .MuiAvatar-root": {
-                width: 32,
-                height: 32,
-                ml: -0.5,
-                mr: 1,
-              },
-              "&:before": {
-                content: '""',
-                display: "block",
-                position: "absolute",
-                top: 0,
-                right: 14,
-                width: 10,
-                height: 10,
-                bgcolor: "background.paper",
-                transform: "translateY(-50%) rotate(45deg)",
-                zIndex: 0,
-              },
-            },
-          }}
-          transformOrigin={{ horizontal: "right", vertical: "top" }}
-          anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
-        ></Menu>
-        <Menu>
-          <MenuItem>
-            <Avatar /> My account
-          </MenuItem>
-          <Divider />
-          <MenuItem>
-            <ListItemIcon>
-              <Logout fontSize="small" />
-            </ListItemIcon>
-            Logout
-          </MenuItem>
-        </Menu> */}
       </AppBar>
+
+      <DialogKonfirmasi
+        open={openLogOut}
+        title="Anda yakin ingin keluar?"
+        setOpen={setopenLogOut}
+        onConfirm={LogOut}
+      />
 
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
