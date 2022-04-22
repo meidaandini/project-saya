@@ -114,33 +114,23 @@ function Grid() {
     },
     {
       id: 4,
-      NamaGedung: "Wisma 46",
-      AlamatGedung: "Jl. Jendral Sudirman. Tanah Abang, Jakarta",
+      NamaGedung: "Kantor Milir",
+      AlamatGedung: "Jl.wates, Kulon Progo",
     },
     {
       id: 5,
-      NamaGedung: "Menara BCA",
-      AlamatGedung: "Jl. M.H.Thamrin No. 1, Menteng, Jakarta Pusat",
+      NamaGedung: "Mess HOD",
+      AlamatGedung: "Mraen 108, Sendangadi Sleman",
     },
     {
       id: 6,
-      NamaGedung: "Horiston Ultima",
-      AlamatGedung: "Jl.KH>Noer Ali Kayuringin Jaya,Kec Bekasi Selatan",
+      NamaGedung: "Mess Perempuan",
+      AlamatGedung: "Mraen 07, Sendangadi Sleman",
     },
     {
       id: 7,
-      NamaGedung: "Eqiuty Tower",
-      AlamatGedung: "Kel. Senayan, Kebayoran Baru, Jakarta",
-    },
-    {
-      id: 8,
-      NamaGedung: "JogjaCityMall",
-      AlamatGedung: "Jl. Magelang-Jogja Km 3",
-    },
-    {
-      id: 9,
-      NamaGedung: "Grand Galaxy Convention",
-      AlamatGedung: "Jl.Boulevard Raya No. 1, Kec Bekasi Selatan",
+      NamaGedung: "Mess Kantor Lama",
+      AlamatGedung: "Mraen 38, Sendangadi Sleman",
     },
   ];
 

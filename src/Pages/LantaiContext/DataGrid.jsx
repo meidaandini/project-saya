@@ -99,15 +99,15 @@ function Grid() {
   ];
 
   const rowsGrid = [
-    { id: 1, NomorLantai: "112B", NamaLantai: "Lower Ground" },
-    { id: 2, NomorLantai: "07A", NamaLantai: "Lantai Atas" },
-    { id: 3, NomorLantai: "81B", NamaLantai: "Upper Ground" },
-    { id: 4, NomorLantai: "46C", NamaLantai: "Hardnest" },
-    { id: 5, NomorLantai: "321A", NamaLantai: "Bougenfill" },
-    { id: 6, NomorLantai: "711A", NamaLantai: "Struggle" },
-    { id: 7, NomorLantai: "65D", NamaLantai: "Aster" },
-    { id: 8, NomorLantai: "36A", NamaLantai: "Basement Tingkat 3" },
-    { id: 9, NomorLantai: "212C", NamaLantai: "Ground Floor" },
+    { id: 1, NomorLantai: "1B", NamaLantai: "Ruang Tamu" },
+    { id: 2, NomorLantai: "1A", NamaLantai: "Ruang Administrator" },
+    { id: 3, NomorLantai: "2B", NamaLantai: "Ruang Meeting" },
+    { id: 4, NomorLantai: "3C", NamaLantai: "KP Lantai 3" },
+    { id: 5, NomorLantai: "01", NamaLantai: "Parkiran Kantor Lama" },
+    { id: 6, NomorLantai: "02A", NamaLantai: "Kantor Lama Lantai 1" },
+    { id: 7, NomorLantai: "2B", NamaLantai: "Lantai 2 Mess KL" },
+    { id: 8, NomorLantai: "3C", NamaLantai: "Gudang HOD" },
+    { id: 9, NomorLantai: "3D", NamaLantai: "Ruang Karyawan Lt 2 HOD" },
   ];
 
   React.useEffect(() => {

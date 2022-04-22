@@ -11,6 +11,7 @@ import Api from "@mui/icons-material/Api";
 import { Link } from "react-router-dom";
 import Article from "@mui/icons-material/Article";
 import Assignment from "@mui/icons-material/Assignment";
+import BrightnessHigh from "@mui/icons-material/BrightnessHigh";
 
 export default function Navbar(children) {
   return (
@@ -64,6 +65,14 @@ export default function Navbar(children) {
               <Assignment />
             </ListItemIcon>
             <ListItemText primary="Lantai_Context" />
+          </ListItemButton>
+        </Link>
+        <Link to="/Lampu">
+          <ListItemButton key="Lampu">
+            <ListItemIcon>
+              <BrightnessHigh />
+            </ListItemIcon>
+            <ListItemText primary="Lampu" />
           </ListItemButton>
         </Link>
       </List>

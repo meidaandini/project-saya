@@ -17,6 +17,7 @@ import { LantaiProvider } from './Pages/LantaiContext/Context';
 import LantaiContext from './Pages/LantaiContext';
 import Login from './Login/Login';
 import {AuthProvider, Butuhlogin} from './Components/Auth/AuthContext';
+import Lampu from './Pages/Lampu';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route exact path='/context' element={<CountProvider/>} />
           <Route exach path='/gedungcontext' element={<GedungProvider><GedungContext/></GedungProvider>} />
           <Route exach path='/lantaicontext' element={<LantaiProvider><LantaiContext/></LantaiProvider> }/>
+          <Route exach path='/lampu' element={<Lampu/>} />
       </Route>
       <Route exact path='/login' element={<Login />} />
     </Routes>

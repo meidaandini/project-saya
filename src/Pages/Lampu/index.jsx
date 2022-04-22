@@ -26,7 +26,7 @@ function DataTable(props) {
   );
 }
 
-const Lantai = () => {
+const Lampu = () => {
   const [openDelete, dialogDeleteApakahTampil] = React.useState(false);
   const [openNotif, setNotif] = React.useState(false);
   const [openPopup, dialogEditTampil] = React.useState(false);
@@ -73,14 +73,13 @@ const Lantai = () => {
   const columns = [
     { field: "id", headerName: "ID", width: 70, flex: 1 },
     {
-      field: "NomorLantai",
-      headerName: "Nomor Lantai",
-      type: "number",
+      field: "JenisLampu",
+      headerName: "Jenis Lampu",
       textAlign: "right",
       width: 170,
       flex: 1,
     },
-    { field: "NamaLantai", headerName: "Nama Lantai", width: 350, flex: 1 },
+    { field: "JumlahLampu", headerName: "Jumlah Lampu", width: 350, flex: 1 },
     {
       field: "age",
       headerName: "#",
@@ -118,15 +117,13 @@ const Lantai = () => {
   ];
 
   const rowsGrid = [
-    { id: 1, NomorLantai: "1B", NamaLantai: "Ruang Tamu" },
-    { id: 2, NomorLantai: "1A", NamaLantai: "Ruang Administrator" },
-    { id: 3, NomorLantai: "2B", NamaLantai: "Ruang Meeting" },
-    { id: 4, NomorLantai: "3C", NamaLantai: "KP Lantai 3" },
-    { id: 5, NomorLantai: "01", NamaLantai: "Parkiran Kantor Lama" },
-    { id: 6, NomorLantai: "02A", NamaLantai: "Kantor Lama Lantai 1" },
-    { id: 7, NomorLantai: "2B", NamaLantai: "Lantai 2 Mess KL" },
-    { id: 8, NomorLantai: "3C", NamaLantai: "Gudang HOD" },
-    { id: 9, NomorLantai: "3D", NamaLantai: "Ruang Karyawan Lt 2 HOD" },
+    { id: 1, JenisLampu: "Halogen", JumlahLampu: "Ruang Tamu" },
+    { id: 2, JenisLampu: "LED", JumlahLampu: "Ruang Administrator" },
+    { id: 3, JenisLampu: "Pillar", JumlahLampu: "Ruang Meeting" },
+    { id: 4, JenisLampu: "Neon", JumlahLampu: "KP Lantai 3" },
+    { id: 5, JenisLampu: "Pijar", JumlahLampu: "Parkiran Kantor Lama" },
+    { id: 6, JenisLampu: "Meja", JumlahLampu: "Kantor Lama Lantai 1" },
+    { id: 7, JenisLampu: "Tumbler", JumlahLampu: "Lantai 2 Mess KL" },
   ];
 
   React.useEffect(function () {
@@ -135,7 +132,7 @@ const Lantai = () => {
 
   return (
     <div>
-      <h2 style={{ textAlign: "center" }}> Tampilan Menu Lantai </h2>
+      <h2 style={{ textAlign: "center" }}> Tampilan Menu Lampu </h2>
       <Button
         variant="outlined"
         direction="row"
@@ -163,7 +160,7 @@ const Lantai = () => {
       />
       <CompPopup
         open={openPopup}
-        title="Create/Edit Data Gedung"
+        title="Create/Edit Data Lampu"
         setOpen={dialogEditTampil}
         action="Simpan"
         action2="Batal"
@@ -180,7 +177,7 @@ const Lantai = () => {
       </CompPopup>
       <CompPopup
         open={openFrom}
-        title="Tambah Data Lantai"
+        title="Tambah Data Lampu"
         setOpen={dialogTambahTampil}
         action="Simpan"
         action2="Batal"
@@ -198,4 +195,4 @@ const Lantai = () => {
   );
 };
 
-export default Lantai;
+export default Lampu;

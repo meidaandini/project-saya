@@ -222,7 +222,7 @@ export default function Header({ children }) {
               component="div"
               // style={{ marginRight: 920 }}
             >
-              Menu Dashboard
+              Data Pengelolaan Lampu PT.Diginet Media
             </Typography>
           </Box>
 

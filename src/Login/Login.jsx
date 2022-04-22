@@ -22,6 +22,7 @@ import {
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { Password } from "@mui/icons-material";
+import axios from "axios";
 
 function Copyright() {
   return (
@@ -73,8 +74,25 @@ export default function SignIn() {
 
   const handleButtonClick = () => {
     setopenToken(btoa(userName));
+
     localStorage.token = btoa(userName);
     localStorage.setItem("username", userName);
+    const options = {
+      method: "POST",
+      url: "https://reqres.in/",
+      headers: {
+        "user-agent": "vscode-restclient",
+        "content-type": "application/json",
+      },
+      username: { userName },
+    };
+
+    axios
+      .request(options)
+      .then(function (response) {})
+      .catch(function (error) {
+        console.error(error);
+      });
 
     // auth.signin(userName, () => {
     navigate(from, { replace: true });
