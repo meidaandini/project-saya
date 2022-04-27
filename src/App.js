@@ -26,7 +26,7 @@ function App() {
     <BrowserRouter>
     <Routes>
       <Route path='/' element={<Butuhlogin><Dashboard /></Butuhlogin>} >
-          <Route exact path='/home' element={<Home />} />
+          <Route exact path='/' element={<Home />} />
           <Route exact path='/gedung' element={<Gedung />} />
           <Route path='lantai' element={<Lantai/>} />
           <Route exact path='/context' element={<CountProvider/>} />

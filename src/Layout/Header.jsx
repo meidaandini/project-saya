@@ -222,7 +222,7 @@ export default function Header({ children }) {
               component="div"
               // style={{ marginRight: 920 }}
             >
-              Data Pengelolaan Lampu PT.Diginet Media
+              Data Pengelolaan Lampu PT. Diginet Media
             </Typography>
           </Box>
 
